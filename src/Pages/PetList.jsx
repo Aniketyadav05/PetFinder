@@ -18,8 +18,8 @@ const PetList = () => {
       fetchPets()
     },[])
   return (
-    <div className="px-8 py-6">
-  <h1 className="text-[#442001] mt-2 text-3xl font-bold mb-6">Find your Match</h1>
+    <div className="px-8 py-6 mt-4">
+  <h1 className="text-[#442001] mt-8 text-3xl font-bold mb-6">Find your Match</h1>
 
   {/* Masonry grid using CSS columns */}
   <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">

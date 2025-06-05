@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPet } from '../api/petFinder';
-import sideBg from '../assets/sideBg.jpg'
+import sideBg from '../assets/sideBg.jpg';
+import fallback from '../assets/fallback.jpg'
 const PetDetails = () => {
   const { id } = useParams();
   const [pet, setPet] = useState(null);
@@ -20,70 +21,75 @@ const PetDetails = () => {
   const address = pet.contact?.address;
 
   return (
-    <div className="relative h-screen w-full">
-     <div
+    <div className="relative min-h-screen w-full ">
+      <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${sideBg})` }}
       ></div>
-      <div className="absolute inset-0 bg-black/40 "></div>
-      <div className="relative max-w-5xl mx-auto p-6 top-1/6">
-      <div className="bg-[#EF673C] rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row">
-        {/* Image Section */}
-        <img
-          src={pet.photos?.[0]?.large || '/fallback.jpg'}
-          alt={pet.name}
-          className="w-full lg:w-1/2 h-80 object-cover rounded-2xl m-6"
-        />
+      <div className="absolute inset-0 bg-black/40"></div>
 
-        {/* Details Section */}
-        <div className="p-6 flex-1">
-          <h1 className="text-3xl font-bold text-[#442001]">{pet.name}</h1>
-          <p className={`${pet.description?"text-green-500":"text-black"} font-bold text-md mt-2`}>{pet.description || "No description available."}</p>
-
-          <div className="mt-4">
-            <span className="inline-block bg-[#442001] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Type: {pet.type}
-            </span>
-            <span className={`inline-block ${pet.status==="adoptable" ?" bg-[#367947]":"bg-red"} text-white px-3 py-1 rounded-full text-sm font-semibold`}>
-              STATUS: {pet.status}
-            </span>
-            <span className="inline-block bg-[#442001] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Type: {pet.type}
-            </span>
-            <span className="inline-block bg-[#442001] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Type: {pet.type}
-            </span>
-            <span className="inline-block bg-[#442001] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Type: {pet.type}
-            </span>
-            <span className="inline-block bg-[#442001] text-white px-3 py-1 rounded-full text-sm font-semibold">
-              Type: {pet.type}
-            </span>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 pt-20">
+        <div className="bg-[#EF673C] rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row">
+          {/* Image Section */}
+          <div className="w-full lg:w-1/2 p-4 sm:p-6">
+            <img
+              src={pet.photos?.[0]?.large || fallback}
+              alt={pet.name}
+              className="w-full h-64 sm:h-80 md:h-96 object-cover rounded-2xl"
+            />
           </div>
 
-          {/* Contact Dropdown */}
-          <div className="mt-6">
-            <button
-              onClick={() => setShowContact(!showContact)}
-              className="bg-yellow-400 text-black px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all cursor-pointer"
-            >
-              {showContact ? "Hide" : "Show"} Contact Details 
-            </button>
+          {/* Details Section */}
+          <div className="p-4 sm:p-6 flex-1 text-white ">
+            <h1 className="text-2xl sm:text-3xl font-bold text-[#442001]">{pet.name}</h1>
+            <p className={`${pet.description ? 'text-green-500' : 'text-black'} font-bold text-sm sm:text-md mt-2`}>
+              {pet.description || "No description available."}
+            </p>
 
-            {showContact && (
-              <div className="mt-4 text-[#EF673C] font-extrabold rounded-lg p-4">
-                <h2 className="text-lg font-semibold text-white mb-2">Contact Address:</h2>
-                <p ><strong className='text-white'>Address:</strong> {address?.address1 || "N/A"}</p>
-                <p><strong className='text-white'>City:</strong> {address?.city || "N/A"}</p>
-                <p><strong className='text-white'>State:</strong> {address?.state || "N/A"}</p>
-                <p><strong className='text-white'>Country:</strong> {address?.country || "N/A"}</p>
-                <p><strong className='text-white'>Postcode:</strong> {address?.postcode || "N/A"}</p>
-              </div>
-            )}
+            <div className="mt-4 flex flex-wrap gap-2">
+              <span className="bg-[#442001] text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                TYPE: {pet.type}
+              </span>
+              <span className={`text-white px-3 py-1 rounded-lg text-sm font-semibold ${pet.status === "adoptable" ? "bg-[#367947]" : "bg-red-500"}`}>
+                STATUS: {pet.status}
+              </span>
+              <span className="bg-[#442001] text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                AGE: {pet.age}
+              </span>
+              <span className="bg-[#442001] text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                SPECIES: {pet.species}
+              </span>
+              <span className="bg-[#442001] text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                BREED: {pet.breed || "N/A"}
+              </span>
+              <span className="bg-[#442001] text-white px-3 py-1 rounded-lg text-sm font-semibold">
+                SIZE: {pet.size}
+              </span>
+            </div>
+
+            {/* Contact Dropdown */}
+            <div className="mt-6">
+              <button
+                onClick={() => setShowContact(!showContact)}
+                className="bg-yellow-400 text-black px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all"
+              >
+                {showContact ? "Hide" : "Show"} Contact Details
+              </button>
+
+              {showContact && (
+                <div className="mt-4 text-white font-semibold bg-black/30 p-4 rounded-lg">
+                  <h2 className="text-lg font-semibold mb-2">Contact Details</h2>
+                  <p><strong>Address:</strong> {address?.address1 || "N/A"}</p>
+                  <p><strong>City:</strong> {address?.city || "N/A"}</p>
+                  <p><strong>State:</strong> {address?.state || "N/A"}</p>
+                  <p><strong>Country:</strong> {address?.country || "N/A"}</p>
+                  <p><strong>Postcode:</strong> {address?.postcode || "N/A"}</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </div>
   );
 };

@@ -34,7 +34,7 @@ const Home = () => {
     fetchOrgs()
   },[])
   return (
-    <div>
+    <div className='mt-4'>
       <Hero/>
       <h1 className="text-[#442001] my-2">Find your Match</h1>
       <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 mx-6">
