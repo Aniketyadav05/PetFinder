@@ -4,7 +4,7 @@ const OrganizationCard = ({image="../assets/fallback.jpg", name, address,num}) =
   const colors = ["bg-[#EF673C]", "bg-[#367947]", "bg-[#442001]"];
   const bgColor = colors[num % 3];
   return (
-   <div className='className="bg-[#EF673C] rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02] duration-300"'>
+   <div className='rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02] duration-300"'>
       
       <div className={`rounded-xl max-w-xs mx-auto w-full ${bgColor}   flex flex-col items-center justify-center p-4 `}>
         <img className='w-32 h-32 sm:w-40 sm:h-40 object-cover  border-1 rounded-2xl ' src={image} alt="" />

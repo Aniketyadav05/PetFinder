@@ -43,7 +43,7 @@ const Home = () => {
         ))}
       </div>
       <h1 className="text-[#442001] my-2">Trusted Pet Organizations</h1>
-      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 my-4 mx-6">
+      <div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4 mx-6">
         {orgs.slice(8,12).map((org, index) => (
           <OrganizationCard key={org.id} name={org.name} num={index} image={org.photos && org.photos.length > 0 ? org.photos[0].medium || org.photos[0].small : fallback} address={org.address}/>
         ))}

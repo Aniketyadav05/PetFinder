@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom'; // 🛠 Corrected import path
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -8,12 +8,12 @@ const Header = () => {
     <div className="font-[Menorca] fixed top-0 left-1/2 -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[75%] lg:w-[70%] backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-md rounded-3xl mt-4 z-50 px-4 sm:px-6 h-14">
       <nav className="h-full flex items-center justify-between">
         {/* Left: Site name */}
-        <Link to="/" className="text-lg sm:text-xl font-extrabold text-[#EF673C] hover:text-[#367947] whitespace-nowrap">
+        <Link to="/" className="text-lg sm:text-xl font-extrabold text-yellow-400 hover:text-[#367947] whitespace-nowrap">
           Pet Haven
         </Link>
 
         {/* Center: Logo */}
-        <div className="flex-grow flex justify-center ml-1 sm:ml-14">
+        <div className="flex-grow flex justify-center mr-14 sm:mr-0 sm:ml-14">
           <Link to="/">
             <img className="h-10 w-auto object-contain " src="/logo.png" alt="Logo" />
           </Link>
@@ -22,12 +22,12 @@ const Header = () => {
         {/* Desktop Nav */}
         <ul className="hidden lg:flex space-x-8 text-base font-medium text-white">
           <li>
-            <Link to="/pets" className="cursor-pointer text-[#EF673C] hover:text-[#EF673C] transition font-bold text-lg">
+            <Link to="/pets" className="cursor-pointer text-yellow-400 hover:text-[#EF673C] transition font-bold text-lg">
               Pets
             </Link>
           </li>
           <li>
-            <Link to="/organisation" className="cursor-pointer text-[#EF673C] hover:text-[#EF673C] transition font-bold text-lg ">
+            <Link to="/organisation" className="cursor-pointer text-yellow-400 hover:text-[#EF673C] transition font-bold text-lg ">
               Organizations
             </Link>
           </li>
@@ -55,8 +55,8 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="lg:hidden  pb-4 px-2 text-black mb-40 backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-md rounded-3xl mt-4">
-          <ul className="flex flex-col items-center space-y-2 font-medium">
+        <div className="absolutelg:hidden   pb-4 px-2 text-yellow-500 font-extrabold text-2xl   backdrop-blur-lg bg-gray-300/50 border-b border-white/50 shadow-lg rounded-3xl mt-4 ">
+          <ul className="flex flex-col items-center space-y-2 ">
             <li>
               <Link to="/pets" onClick={() => setMenuOpen(false)} className="hover:text-[#EF673C]">
                 Pets
