@@ -11,25 +11,35 @@ export const fetchAccessToken = async() => {
             client_secret: import.meta.env.VITE_PETFINDER_CLIENT_SECRET,
         })
     })
+   
+
     const data = await res.json();
     token = data.access_token;
     return token;
 }
 export const getPets = async () => {
-    if (!token){
-        await fetchAccessToken();
-    } 
-    try {
-        const res = await fetch(`${API_BASE_URL}/animals?type=dog&page=1`,{
-            headers:{Authorization: `Bearer ${token}`}
-        })
-        // console.log(`ye h function ka ${res.json()}`)
-        return await res.json();
-    } catch (error) {
-        console.log(error)
+  if (!token) {
+    await fetchAccessToken();
+  }
+
+  try {
+    const res = await fetch(`${API_BASE_URL}/animals?type=dog&page=1`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    if (!res.ok) {
+      throw new Error(`Failed to fetch pets: ${res.status} ${res.statusText}`);
     }
 
-}
+    return await res.json();
+  } catch (error) {
+    console.error('getPets error:', error);
+    return null; // To prevent "undefined" issues
+  }
+};
+
 export const getOrgs = async () => {
     if(!token){
         await fetchAccessToken()
