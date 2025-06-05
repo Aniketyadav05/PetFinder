@@ -5,10 +5,10 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <div className="font-[Menorca] fixed top-0 left-1/2 -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[75%] lg:w-[70%] backdrop-blur-lg bg-white/10 border-b border-white/20 shadow-md rounded-3xl mt-4 z-50 px-4 sm:px-6 h-14">
+    <div className="font-[Menorca] fixed top-0 left-1/2 -translate-x-1/2 w-[90%] sm:w-[85%] md:w-[75%] lg:w-[70%] backdrop-blur-lg bg-white/50 border-b-2 border-b-black border-r-2 border-r-black border-white/50 shadow-md rounded-3xl mt-4 z-50 px-4 sm:px-6 h-14">
       <nav className="h-full flex items-center justify-between">
         {/* Left: Site name */}
-        <Link to="/" className="text-lg sm:text-xl font-extrabold text-yellow-400 hover:text-[#367947] whitespace-nowrap">
+        <Link to="/" className="text-lg sm:text-xl font-extrabold text-[#442001]  hover:text-yellow-400 whitespace-nowrap">
           Pet Haven
         </Link>
 
@@ -20,14 +20,14 @@ const Header = () => {
         </div>
 
         {/* Desktop Nav */}
-        <ul className="hidden lg:flex space-x-8 text-base font-medium text-white">
+        <ul className="hidden lg:flex space-x-8 text-base font-medium text-[#442001] ">
           <li>
-            <Link to="/pets" className="cursor-pointer text-yellow-400 hover:text-[#EF673C] transition font-bold text-lg">
+            <Link to="/pets" className="cursor-pointer text-[#442001]  hover:text-yellow-400 transition font-bold text-lg">
               Pets
             </Link>
           </li>
           <li>
-            <Link to="/organisation" className="cursor-pointer text-yellow-400 hover:text-[#EF673C] transition font-bold text-lg ">
+            <Link to="/organisation" className="cursor-pointer text-[#442001]  hover:text-yellow-400 transition font-bold text-lg ">
               Organizations
             </Link>
           </li>
