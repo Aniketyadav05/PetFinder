@@ -7,6 +7,7 @@ import { Outlet } from 'react-router'
 import FadeInWrapper from './Components/FadeInWrapper'
 
 import ShinyText from './Components/ShinyText'
+import Footer from './Components/Footer'
 
 const App = () => {
   
@@ -16,6 +17,7 @@ const App = () => {
 
       <Header/>
       <Outlet/>
+      <Footer/>
     </FadeInWrapper>
     </>
   ) 
