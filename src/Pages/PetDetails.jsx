@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { getPet } from '../api/petFinder';
 import sideBg from '../assets/sideBg.jpg';
 import fallback from '../assets/fallback.jpg'
+import Loader from '../Components/Loader'
 const PetDetails = () => {
   const { id } = useParams();
   const [pet, setPet] = useState(null);
@@ -10,13 +11,24 @@ const PetDetails = () => {
 
   useEffect(() => {
     const fetchPet = async () => {
-      const data = await getPet({ id });
+      
+      try {
+        const data = await getPet({ id });
       setPet(data.animal);
+      
+      } catch (error) {
+        console.log(error)
+        
+      }
     };
     fetchPet();
   }, [id]);
 
-  if (!pet) return <div className="text-center mt-10">Loading...</div>;
+  if (!pet) return <div className='mt-40'>
+    <div className='flex justify-center items-center mt-20'>
+  <Loader/>
+  </div>
+  </div>
 
   const address = pet.contact?.address;
 
@@ -71,7 +83,7 @@ const PetDetails = () => {
             <div className="mt-6">
               <button
                 onClick={() => setShowContact(!showContact)}
-                className="bg-yellow-400 text-black px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all"
+                className="bg-yellow-400 text-black cursor-pointer px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all"
               >
                 {showContact ? "Hide" : "Show"} Contact Details
               </button>

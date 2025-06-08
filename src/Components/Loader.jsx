@@ -1,9 +1,18 @@
-import React from 'react'
+import React from 'react';
+
 
 const Loader = () => {
   return (
-    <div>Loader</div>
-  )
+    
+      <div className="newtons-cradle">
+        <div className="newtons-cradle__dot" />
+        <div className="newtons-cradle__dot" />
+        <div className="newtons-cradle__dot" />
+        <div className="newtons-cradle__dot" />
+      </div>
+ 
+  );
 }
 
-export default Loader
+
+export default Loader;

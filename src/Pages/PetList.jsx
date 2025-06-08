@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { getPets } from '../api/petFinder'
 import PetCard from '../Components/PetCard'
 import fallback from '../assets/fallback.jpg'
+import Loader from '../Components/Loader'
 const PetList = () => {
   const [Filter,setFilter] = useState('')
   const [Page,setPage] = useState(1)
@@ -79,7 +80,9 @@ const PetList = () => {
 
   </div>
   
-: <div>Loaidng</div>
+: <div className='flex justify-center items-center mt-20'>
+  <Loader/>
+  </div>
   }
 </div>
   )
