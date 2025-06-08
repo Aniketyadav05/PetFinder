@@ -35,7 +35,7 @@ const Header = () => {
 
         {/* Hamburger */}
         <div className="lg:hidden">
-          <button onClick={() => setMenuOpen(!menuOpen)} className="text-white focus:outline-none">
+          <button onClick={() => setMenuOpen(!menuOpen)} className="text-orange-600 focus:outline-none">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -55,7 +55,7 @@ const Header = () => {
 
       {/* Mobile Nav */}
       {menuOpen && (
-        <div className="absolutelg:hidden   pb-4 px-2 text-yellow-500 font-extrabold text-2xl   backdrop-blur-lg bg-gray-300/50 border-b border-white/50 shadow-lg rounded-3xl mt-4 ">
+        <div className="absolutelg:hidden   py-4 px-2 text-orange-600 font-extrabold text-2xl   backdrop-blur-lg bg-gray-50/50 border-b border-white/50 shadow-lg rounded-3xl mt-4 ">
           <ul className="flex flex-col items-center space-y-2 ">
             <li>
               <Link to="/pets" onClick={() => setMenuOpen(false)} className="hover:text-[#EF673C]">
