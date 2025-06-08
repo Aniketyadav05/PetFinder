@@ -22,9 +22,6 @@ const PetList = () => {
       setLoading(false);
     }
   };
-
-  
-    setPage(1);
     fetchPets();
 
 }, [Filter, Page]);
@@ -65,7 +62,7 @@ const PetList = () => {
     <div className="w-full flex items-center justify-center">
   <button
     className="bg-yellow-400 cursor-pointer text-black px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all"
-    onClick={() => (Page > 1 ? setPage(Page - 1) : setPage(1))}
+    onClick={() => (Page > 1 ? setPage(Page - 1) : setPage(Page))}
   >
     Prev
   </button>
