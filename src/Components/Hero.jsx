@@ -1,5 +1,6 @@
 import React from 'react';
 import bg from '../assets/bg.jpg'; // background image
+import { Link } from 'react-router';
 
 const Hero = () => {
   return (
@@ -22,9 +23,9 @@ const Hero = () => {
           <p className="text-sm sm:text-base mb-4 sm:mb-6 font-bold">
             From playful pups to cuddly kittens<br />we’ve got your match
           </p>
-          <button className="bg-yellow-400 text-black px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all">
+          <Link to="/pets" className="bg-yellow-400 cursor-pointer text-black px-5 sm:px-6 py-2 rounded-md font-bold shadow-md hover:bg-yellow-500 transition-all">
             Find Them
-          </button>
+          </Link>
         </div>
       </div>
     </div>
