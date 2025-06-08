@@ -47,7 +47,7 @@ const PetList = () => {
   
   { !loading?<div className="columns-1 sm:columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
     {pets.slice(0, 20).map((pet) => (
-      <div key={pet.id} className="bg-[#EF673C] rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02] duration-300">
+      <div key={pet.id} className="rounded-2xl overflow-hidden shadow-lg transition-transform hover:scale-[1.02] duration-300">
         <PetCard
           id={pet.id}
           name={pet.name}
