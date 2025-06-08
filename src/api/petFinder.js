@@ -17,13 +17,13 @@ export const fetchAccessToken = async() => {
     token = data.access_token;
     return token;
 }
-export const getPets = async () => {
+export const getPets = async ({ type = "", page = "1" } = {}) => {
   if (!token) {
     await fetchAccessToken();
   }
 
   try {
-    const res = await fetch(`${API_BASE_URL}/animals?type=dog&page=1`, {
+    const res = await fetch(`${API_BASE_URL}/animals?type=${type}&page=${page}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

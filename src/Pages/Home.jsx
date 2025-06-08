@@ -13,7 +13,7 @@ const Home = () => {
     const fetchPets =async ()=>{
       try {
         const data = await getPets();
-        console.log(data.animals)
+        console.log(data)
         setPets(data.animals)
         setLoading(false);
       } catch (error) {

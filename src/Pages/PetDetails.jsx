@@ -21,14 +21,14 @@ const PetDetails = () => {
   const address = pet.contact?.address;
 
   return (
-    <div className="relative min-h-screen w-full ">
+    <div className="relative min-h-screen w-full">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${sideBg})` }}
       ></div>
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 pt-20">
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6 py-10 pt-32">
         <div className="bg-[#EF673C] rounded-2xl shadow-lg overflow-hidden flex flex-col lg:flex-row">
           {/* Image Section */}
           <div className="w-full lg:w-1/2 p-4 sm:p-6">
